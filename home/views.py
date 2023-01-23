@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
+
+from django.contrib import messages
+
+
 # Create your views here.
 def home(request):
     views = {}
@@ -16,6 +20,22 @@ def about(request):
 
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+        data = Contact.objects.create(
+            name = name,
+            email = email,
+            subject = subject,
+            messege = message
+        )
+        data.save()
+        messages = {}
+        messages['message']= 'The form is submitted!'
+        return render(request, 'contact.html',messages)
+
     return render(request, 'contact.html')
 
 
@@ -29,3 +49,9 @@ def price(request):
 
 def services(request):
     return render(request, 'services.html')
+
+def blog_home(request):
+    return render(request,'blog-home.html')
+
+def blog_single(request):
+    return render(request,'blog-single.html')

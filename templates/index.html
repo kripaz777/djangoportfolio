@@ -14,7 +14,7 @@
 							<a href="#" class="primary-btn text-uppercase">discover now</a>
 						</div>
 						<div class="col-lg-6 col-md-6 banner-right d-flex align-self-end">
-							<img class="img-fluid" src="img/hero-img.png" alt="">
+							<img class="img-fluid" src="{% static 'img/hero-img.png' %}" alt="">
 						</div>
 					</div>
 				</div>					
@@ -124,11 +124,11 @@
                             	<div class="relative">
 	                            	<div class="thumb">
 	                            		<div class="overlay overlay-bg"></div>
-	                            		 <img class="image img-fluid" src="{{cat.image.url}}" alt="">
+	                            		 <img class="image img-fluid" src="{{portpolio.image.url}}" alt="">
 	                            	</div>
-									<a href="{{cat.image.url}}" class="img-pop-up">
+									<a href="{{portpolio.image.url}}" class="img-pop-up">
 									  <div class="middle">
-									    <div class="text align-self-center d-flex"><img src="{{cat.image.url}}" alt=""></div>
+									    <div class="text align-self-center d-flex"><img src="{{portpolio.image.url}}" alt=""></div>
 									  </div>
 									</a>                            		
                             	</div> 
@@ -146,17 +146,17 @@
                             	<div class="relative">
                             	<div class="thumb">
 	                            		<div class="overlay overlay-bg"></div>
-	                            		 <img class="image img-fluid" src="img/p5.jpg" alt="">
+	                            		 <img class="image img-fluid" src="{{portpolio.image.url}}" alt="">
 	                            	</div>
-									<a href="img/p5.jpg" class="img-pop-up">	
+									<a href="{{portpolio.image.url}}" class="img-pop-up">
 									  <div class="middle">
-									    <div class="text align-self-center d-flex"><img src="img/preview.png" alt=""></div>
+									    <div class="text align-self-center d-flex"><img src="{{portpolio.image.url}}" alt=""></div>
 									  </div>
 									</a>                             		
                             	</div>
                                 <div class="p-inner">
-                                    <h4>3D Helmet Design</h4>
-                                    <div class="cat">vector</div>
+                                    <h4>{{portpolio.name}}</h4>
+                                    <div class="cat">{{portpolio.category}}</div>
                                 </div>
                             </div>
 							{% endfor %}
