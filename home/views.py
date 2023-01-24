@@ -51,7 +51,11 @@ def services(request):
     return render(request, 'services.html')
 
 def blog_home(request):
-    return render(request,'blog-home.html')
+    views = {}
+    views['blogs'] = Blog.objects.all()
+    views['blog_cat'] = BlogCategory.objects.all()
+
+    return render(request,'blog-home.html',views)
 
 def blog_single(request):
     return render(request,'blog-single.html')

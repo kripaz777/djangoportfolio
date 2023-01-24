@@ -52,3 +52,21 @@ class Portfolio(models.Model):
 
     def __str__(self):
         return self.name
+
+class BlogCategory(models.Model):
+    name = models.CharField(max_length=300)
+    slug = models.CharField(max_length=300)
+    def __str__(self):
+        return self.name
+
+class Blog(models.Model):
+    title = models.TextField()
+    body = models.TextField()
+    category = models.ForeignKey(BlogCategory,on_delete=models.CASCADE)
+    auther = models.CharField(max_length=500)
+    image = models.ImageField(upload_to='media')
+    views = models.IntegerField(default = 0)
+    date = models.DateTimeField(null = True)
+
+    def __str__(self):
+        return self.title
