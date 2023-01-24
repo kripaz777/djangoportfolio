@@ -61,6 +61,7 @@ class BlogCategory(models.Model):
 
 class Blog(models.Model):
     title = models.TextField()
+    front_body = models.TextField(blank = True)
     body = models.TextField()
     category = models.ForeignKey(BlogCategory,on_delete=models.CASCADE)
     auther = models.CharField(max_length=500)
