@@ -57,5 +57,11 @@ def blog_home(request):
 
     return render(request,'blog-home.html',views)
 
-def blog_single(request):
-    return render(request,'blog-single.html')
+def blog_single(request,slug):
+    views = {}
+    views['blog_singles'] = Blog.objects.filter(slug = slug)
+    no_views = Blog.objects.get(slug = slug).views
+    no_views = no_views +1
+    Blog.objects.filter(slug=slug).update(views =  no_views)
+    views['categories'] = BlogCategory.objects.all()
+    return render(request,'blog-single.html',views)

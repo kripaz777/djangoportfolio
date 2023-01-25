@@ -68,6 +68,7 @@ class Blog(models.Model):
     image = models.ImageField(upload_to='media')
     views = models.IntegerField(default = 0)
     date = models.DateTimeField(null = True)
+    slug = models.TextField(blank=True)
 
     def __str__(self):
         return self.title

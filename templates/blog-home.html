@@ -97,13 +97,13 @@
 								</div>
 								<div class="col-lg-9 col-md-9 ">
 									<div class="feature-img">
-										<img class="img-fluid" src="{{blog.image}}" alt="">
+										<img class="img-fluid" src="{{blog.image.url}}" alt="">
 									</div>
-									<a class="posts-title" href="blog-single.html"><h3>{{blog.title}}</h3></a>
+									<a class="posts-title" href="/blog_single/{{blog.slug}}"><h3>{{blog.title}}</h3></a>
 									<p class="excert">
 										{{blog.front_body}}
 									</p>
-									<a href="blog-single.html" class="primary-btn">View More</a>
+									<a href="/blog_single/{{blog.slug}}" class="primary-btn">View More</a>
 								</div>
 							</div>
 							{% endfor %}
