@@ -72,3 +72,14 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+class BlogComment(models.Model):
+    name = models.CharField(max_length=300)
+    email = models.EmailField(max_length=300)
+    subject = models.TextField()
+    message = models.TextField()
+    datetime = models.DateTimeField(auto_now_add=True,null=True)
+    slug = models.TextField()
+
+    def __str__(self):
+        return self.name

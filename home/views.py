@@ -64,4 +64,23 @@ def blog_single(request,slug):
     no_views = no_views +1
     Blog.objects.filter(slug=slug).update(views =  no_views)
     views['categories'] = BlogCategory.objects.all()
+    views['blog_comments'] = BlogComment.objects.filter(slug = slug)
+
+
     return render(request,'blog-single.html',views)
+
+def blog_comment(request,slug):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+        data = BlogComment.objects.create(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message,
+            slug = slug
+        )
+        data.save()
+    return redirect(f'/blog_single/{slug}')
