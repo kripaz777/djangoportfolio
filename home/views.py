@@ -69,6 +69,17 @@ def blog_single(request,slug):
 
     return render(request,'blog-single.html',views)
 
+def category_blog_home(request,slug):
+    views = {}
+    cat_id = BlogCategory.objects.get(slug = slug).id
+    print(cat_id)
+    views['blogs'] = Blog.objects.filter(category_id = cat_id)
+    views['blog_cat'] = BlogCategory.objects.all()
+
+    return render(request,'category-blog-home.html',views)
+
+
+
 def blog_comment(request,slug):
     if request.method == 'POST':
         name = request.POST['name']
